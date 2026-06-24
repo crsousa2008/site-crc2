@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRC Telecom | Internet Fibra Óptica</title>
-    <!-- Ícones modernos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -18,11 +17,11 @@
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { background: #fff; color: var(--dark); line-height: 1.6; }
+        body { background: #fff; color: var(--dark); line-height: 1.6; scroll-behavior: smooth; }
 
         /* Topbar de utilidades */
-        .topbar { background: var(--dark); color: #fff; padding: 8px 5%; font-size: 13px; display: flex; justify-content: space-between; }
-        .topbar a { color: #ccc; text-decoration: none; margin-left: 15px; }
+        .topbar { background: var(--dark); color: #fff; padding: 8px 5%; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+        .topbar a { color: #ccc; text-decoration: none; margin-left: 15px; display: inline-flex; align-items: center; gap: 5px; }
         .topbar a:hover { color: #fff; }
 
         /* Header Principal */
@@ -35,15 +34,16 @@
         nav a:hover { color: var(--primary); }
         
         .header-actions { display: flex; align-items: center; gap: 15px; }
-        .btn-client { color: var(--primary); border: 1px solid var(--primary); padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.2s; }
+        .btn-client { color: var(--primary); border: 1px solid var(--primary); padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
         .btn-client:hover { background: var(--primary); color: #fff; }
 
         /* Hero Banner */
         .hero { background: linear-gradient(135deg, #09283a 0%, #12557a 100%); color: white; padding: 100px 5% 90px 5%; text-align: center; position: relative; overflow: hidden; }
         .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: #fff; clip-path: polygon(0 100%, 100% 100%, 100% 0); }
         
-        .hero badge { background: var(--accent); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; }
-        .hero h1 { font-size: 3rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px; }
+        /* Correção da tag badge inválida para classe */
+        .hero .badge { background: var(--accent); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px; line-height: 1.2; }
         .hero p { font-size: 1.2rem; color: #e0e6ed; max-width: 600px; margin: 0 auto 30px auto; }
 
         /* Container de Planos */
@@ -55,7 +55,7 @@
         .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(18,85,122,0.15); border-color: var(--primary); }
         
         .card.featured { border: 2px solid var(--primary); }
-        .card.featured .ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 4px 15px; font-size: 11px; font-weight: bold; border-radius: 20px; text-transform: uppercase; }
+        .card.featured .ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 4px 15px; font-size: 11px; font-weight: bold; border-radius: 20px; text-transform: uppercase; white-space: nowrap; }
 
         .card-speed { font-size: 42px; font-weight: 800; color: var(--dark); line-height: 1; display: flex; align-items: baseline; }
         .card-speed span { font-size: 20px; font-weight: 600; color: var(--text-muted); margin-left: 5px; }
@@ -64,10 +64,10 @@
         .card-divider { height: 1px; background: #e1e6eb; margin: 20px 0; }
         
         .card-features { list-style: none; margin-bottom: 30px; flex-grow: 1; }
-        .card-features li { font-size: 14px; color: #495057; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .card-features li i { color: var(--primary); font-size: 16px; }
+        .card-features li { font-size: 14px; color: #495057; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; text-align: left; }
+        .card-features li i { color: var(--primary); font-size: 16px; flex-shrink: 0; }
 
-        .card-price-box { margin-bottom: 20px; }
+        .card-price-box { margin-bottom: 20px; text-align: left; }
         .price-currency { font-size: 14px; font-weight: 600; color: var(--dark); vertical-align: super; }
         .price-value { font-size: 46px; font-weight: 800; color: var(--dark); letter-spacing: -2px; }
         .price-period { font-size: 14px; color: var(--text-muted); }
@@ -88,17 +88,21 @@
         .footer-links ul li a:hover { color: #fff; }
         .footer-copy { text-align: center; color: #6c757d; font-size: 12px; margin-top: 20px; }
 
+        /* Responsividade Otimizada */
         @media (max-width: 768px) {
-            nav, .header-actions { display: none; }
+            nav { display: none; }
+            .topbar { flex-direction: column; gap: 5px; text-align: center; }
+            .topbar a { margin-left: 0; }
             .hero h1 { font-size: 2.2rem; }
             .card.featured { transform: none !important; }
-            .logo-container img { height: 70px; }
+            .logo-container img { height: 75px; }
+            .btn-client span { display: none; } /* Deixa apenas o ícone no mobile para poupar espaço */
+            .btn-client { padding: 8px 12px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Barra do topo -->
     <div class="topbar">
         <div>Para sua casa</div>
         <div>
@@ -106,33 +110,28 @@
         </div>
     </div>
 
-    <!-- Navegação -->
     <header>
         <div class="logo-container">
-            <!-- Logo oficial da CRC Telecom aplicada e ampliada -->
-            <img src="20260406_200613_0000.png" alt="CRC Telecom">
+            <a href="#"><img src="20260406_200613_0000.png" alt="CRC Telecom"></a>
         </div>
         <nav>
             <a href="#planos">Planos Fibra</a>
         </nav>
         <div class="header-actions">
-            <a href="https://crctelecom.assinante.net" class="btn-client" target="_blank"><i class="far fa-user"></i> Área do Cliente</a>
+            <a href="https://crctelecom.assinante.net" class="btn-client" target="_blank"><i class="far fa-user"></i> <span>Área do Cliente</span></a>
         </div>
     </header>
 
-    <!-- Banner Principal -->
     <section class="hero">
-        <badge>Tecnologia de ponta</badge>
+        <span class="badge">Tecnologia de ponta</span>
         <h1>A Ultra Internet que conecta você ao futuro</h1>
         <p>Internet 100% Fibra Óptica de ponta a ponta com máxima estabilidade para jogar, trabalhar e assistir em 4K.</p>
     </section>
 
-    <!-- Seção de Planos -->
     <h2 class="section-title" id="planos">Escolha o plano ideal para você</h2>
     
     <section class="plans-grid">
         
-        <!-- Plano 150MB -->
         <div class="card">
             <div class="card-speed">150 <span>Mega</span></div>
             <div class="card-label">Ideal para o dia a dia</div>
@@ -150,7 +149,6 @@
             <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano de 150 Mega por R$80." class="btn-buy" target="_blank">Contratar Agora</a>
         </div>
 
-        <!-- Plano 200MB -->
         <div class="card">
             <div class="card-speed">200 <span>Mega</span></div>
             <div class="card-label">Perfeito para Estudos e Home Office</div>
@@ -168,7 +166,6 @@
             <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano de 200 Mega por R$85." class="btn-buy" target="_blank">Contratar Agora</a>
         </div>
 
-        <!-- Plano 400MB (O Mais Vendido) -->
         <div class="card featured">
             <div class="ribbon">Mais Assinado</div>
             <div class="card-speed" style="color: var(--primary);">400 <span>Mega</span></div>
@@ -188,7 +185,6 @@
             <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano campeão de 400 Mega por R$100." class="btn-buy" target="_blank">Contratar Agora</a>
         </div>
 
-        <!-- Plano 600MB -->
         <div class="card">
             <div class="card-speed">600 <span>Mega</span></div>
             <div class="card-label">Ultra Performance Familiar</div>
@@ -208,7 +204,6 @@
 
     </section>
 
-    <!-- Rodapé Completo -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
