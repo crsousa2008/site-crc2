@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRC Telecom | Internet Fibra Óptica</title>
+    <!-- Ícones modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #12557a; /* Azul alinhado com a logo oficial */
+            --primary-dark: #0a3650;
+            --accent: #ff6b00; 
+            --whatsapp: #25d366;
+            --dark: #111215;
+            --gray-light: #f4f6f9;
+            --text-muted: #6c757d;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background: #fff; color: var(--dark); line-height: 1.6; }
+
+        /* Topbar de utilidades */
+        .topbar { background: var(--dark); color: #fff; padding: 8px 5%; font-size: 13px; display: flex; justify-content: space-between; }
+        .topbar a { color: #ccc; text-decoration: none; margin-left: 15px; }
+        .topbar a:hover { color: #fff; }
+
+        /* Header Principal */
+        header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        
+        /* Logo do Topo com tamanho ampliado para máximo destaque */
+        .logo-container img { height: 105px; width: auto; display: block; transition: 0.3s; }
+        
+        nav a { color: var(--dark); text-decoration: none; font-weight: 600; margin: 0 15px; font-size: 15px; transition: 0.2s; }
+        nav a:hover { color: var(--primary); }
+        
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .btn-client { color: var(--primary); border: 1px solid var(--primary); padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.2s; }
+        .btn-client:hover { background: var(--primary); color: #fff; }
+
+        /* Hero Banner */
+        .hero { background: linear-gradient(135deg, #09283a 0%, #12557a 100%); color: white; padding: 100px 5% 90px 5%; text-align: center; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: #fff; clip-path: polygon(0 100%, 100% 100%, 100% 0); }
+        
+        .hero badge { background: var(--accent); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px; }
+        .hero p { font-size: 1.2rem; color: #e0e6ed; max-width: 600px; margin: 0 auto 30px auto; }
+
+        /* Container de Planos */
+        .section-title { text-align: center; margin: 60px 0 30px 0; font-size: 2rem; font-weight: 700; color: var(--dark); }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px 80px 20px; }
+        
+        /* Cards */
+        .card { background: #fff; border: 1px solid #e1e6eb; border-radius: 12px; padding: 35px 25px; position: relative; display: flex; flex-direction: column; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(18,85,122,0.15); border-color: var(--primary); }
+        
+        .card.featured { border: 2px solid var(--primary); }
+        .card.featured .ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 4px 15px; font-size: 11px; font-weight: bold; border-radius: 20px; text-transform: uppercase; }
+
+        .card-speed { font-size: 42px; font-weight: 800; color: var(--dark); line-height: 1; display: flex; align-items: baseline; }
+        .card-speed span { font-size: 20px; font-weight: 600; color: var(--text-muted); margin-left: 5px; }
+        .card-label { font-size: 13px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-top: 5px; letter-spacing: 0.5px; }
+        
+        .card-divider { height: 1px; background: #e1e6eb; margin: 20px 0; }
+        
+        .card-features { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+        .card-features li { font-size: 14px; color: #495057; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .card-features li i { color: var(--primary); font-size: 16px; }
+
+        .card-price-box { margin-bottom: 20px; }
+        .price-currency { font-size: 14px; font-weight: 600; color: var(--dark); vertical-align: super; }
+        .price-value { font-size: 46px; font-weight: 800; color: var(--dark); letter-spacing: -2px; }
+        .price-period { font-size: 14px; color: var(--text-muted); }
+
+        .btn-buy { display: block; text-align: center; background: var(--primary); color: white; padding: 14px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 15px; transition: 0.2s; }
+        .btn-buy:hover { background: var(--primary-dark); }
+        .card.featured .btn-buy { background: var(--accent); }
+        .card.featured .btn-buy:hover { background: #e05e00; }
+
+        /* Rodapé */
+        footer { background: var(--dark); color: #fff; padding: 50px 5% 20px 5%; font-size: 14px; }
+        .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #22252a; padding-bottom: 30px; }
+        .footer-brand h4 { font-size: 20px; color: #fff; margin-bottom: 10px; }
+        .footer-links h5 { color: #fff; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 15px; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 8px; }
+        .footer-links ul li a { color: #8a94a6; text-decoration: none; }
+        .footer-links ul li a:hover { color: #fff; }
+        .footer-copy { text-align: center; color: #6c757d; font-size: 12px; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            nav, .header-actions { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .card.featured { transform: none !important; }
+            .logo-container img { height: 70px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra do topo -->
+    <div class="topbar">
+        <div>Para sua casa</div>
+        <div>
+            <a href="https://wa.me/5522992135891" target="_blank"><i class="fas fa-headset"></i> Atendimento Comercial: (22) 99213-5891</a>
+        </div>
+    </div>
+
+    <!-- Navegação -->
+    <header>
+        <div class="logo-container">
+            <!-- Logo oficial da CRC Telecom aplicada e ampliada -->
+            <img src="20260406_200613_0000.png" alt="CRC Telecom">
+        </div>
+        <nav>
+            <a href="#planos">Planos Fibra</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://crctelecom.assinante.net" class="btn-client" target="_blank"><i class="far fa-user"></i> Área do Cliente</a>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <badge>Tecnologia de ponta</badge>
+        <h1>A Ultra Internet que conecta você ao futuro</h1>
+        <p>Internet 100% Fibra Óptica de ponta a ponta com máxima estabilidade para jogar, trabalhar e assistir em 4K.</p>
+    </section>
+
+    <!-- Seção de Planos -->
+    <h2 class="section-title" id="planos">Escolha o plano ideal para você</h2>
+    
+    <section class="plans-grid">
+        
+        <!-- Plano 150MB -->
+        <div class="card">
+            <div class="card-speed">150 <span>Mega</span></div>
+            <div class="card-label">Ideal para o dia a dia</div>
+            <div class="card-divider"></div>
+            <ul class="card-features">
+                <li><i class="fas fa-check"></i> 100% Fibra Óptica</li>
+                <li><i class="fas fa-wifi"></i> Wi-Fi de alta performance</li>
+                <li><i class="fas fa-upload"></i> Ótima taxa de upload</li>
+            </ul>
+            <div class="card-price-box">
+                <span class="price-currency">R$</span>
+                <span class="price-value">80</span>
+                <span class="price-period">,00/mês</span>
+            </div>
+            <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano de 150 Mega por R$80." class="btn-buy" target="_blank">Contratar Agora</a>
+        </div>
+
+        <!-- Plano 200MB -->
+        <div class="card">
+            <div class="card-speed">200 <span>Mega</span></div>
+            <div class="card-label">Perfeito para Estudos e Home Office</div>
+            <div class="card-divider"></div>
+            <ul class="card-features">
+                <li><i class="fas fa-check"></i> 100% Fibra Óptica</li>
+                <li><i class="fas fa-wifi"></i> Roteador Dual-Band incluso</li>
+                <li><i class="fas fa-bolt"></i> Ideal para múltiplos dispositivos</li>
+            </ul>
+            <div class="card-price-box">
+                <span class="price-currency">R$</span>
+                <span class="price-value">85</span>
+                <span class="price-period">,00/mês</span>
+            </div>
+            <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano de 200 Mega por R$85." class="btn-buy" target="_blank">Contratar Agora</a>
+        </div>
+
+        <!-- Plano 400MB (O Mais Vendido) -->
+        <div class="card featured">
+            <div class="ribbon">Mais Assinado</div>
+            <div class="card-speed" style="color: var(--primary);">400 <span>Mega</span></div>
+            <div class="card-label">O melhor custo-benefício</div>
+            <div class="card-divider"></div>
+            <ul class="card-features">
+                <li><i class="fas fa-check"></i> 100% Fibra Óptica</li>
+                <li><i class="fas fa-gamepad"></i> Baixa latência para Jogos Online</li>
+                <li><i class="fas fa-tv"></i> Ideal para Streaming em 4K</li>
+                <li><i class="fas fa-star"></i> Instalação Prioritária</li>
+            </ul>
+            <div class="card-price-box">
+                <span class="price-currency">R$</span>
+                <span class="price-value">100</span>
+                <span class="price-period">,00/mês</span>
+            </div>
+            <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano campeão de 400 Mega por R$100." class="btn-buy" target="_blank">Contratar Agora</a>
+        </div>
+
+        <!-- Plano 600MB -->
+        <div class="card">
+            <div class="card-speed">600 <span>Mega</span></div>
+            <div class="card-label">Ultra Performance Familiar</div>
+            <div class="card-divider"></div>
+            <ul class="card-features">
+                <li><i class="fas fa-check"></i> 100% Fibra Óptica</li>
+                <li><i class="fas fa-wifi"></i> Cobertura residencial ampliada</li>
+                <li><i class="fas fa-bolt"></i> Perfeito para downloads pesados e transmissões ao vivo</li>
+            </ul>
+            <div class="card-price-box">
+                <span class="price-currency">R$</span>
+                <span class="price-value">120</span>
+                <span class="price-period">,00/mês</span>
+            </div>
+            <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano de 600 Mega por R$120." class="btn-buy" target="_blank">Contratar Agora</a>
+        </div>
+
+    </section>
+
+    <!-- Rodapé Completo -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h4>CRC Telecom</h4>
+                <p style="color: #8a94a6; max-width: 250px;">Levar conexão de alta qualidade com atendimento humano e veloz é o nosso compromisso.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Nossos Planos</h5>
+                <ul>
+                    <li><a href="#planos">Plano 150 Mega</a></li>
+                    <li><a href="#planos">Plano 200 Mega</a></li>
+                    <li><a href="#planos">Plano 400 Mega</a></li>
+                    <li><a href="#planos">Plano 600 Mega</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>Atendimento</h5>
+                <ul>
+                    <li><a href="https://wa.me/5522992135891" target="_blank">Central de Vendas</a></li>
+                    <li><a href="https://crctelecom.assinante.net" target="_blank">Área do Assinante</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copy">
+            &copy; 2026 CRC Telecom. Todos os direitos reservados. Central de Atendimento: (22) 99213-5891
+        </div>
+    </footer>
+
+</body>
+</html>
