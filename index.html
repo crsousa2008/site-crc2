@@ -96,8 +96,9 @@
             .hero h1 { font-size: 2.2rem; }
             .card.featured { transform: none !important; }
             .logo-container img { height: 75px; }
-            .btn-client span { display: none; } /* Deixa apenas o ícone no mobile para poupar espaço */
-            .btn-client { padding: 8px 12px; }
+            
+            /* Ajuste para o texto caber perfeitamente e aparecer no mobile */
+            .btn-client { padding: 6px 12px; font-size: 12px; gap: 5px; }
         }
     </style>
 </head>
@@ -118,7 +119,7 @@
             <a href="#planos">Planos Fibra</a>
         </nav>
         <div class="header-actions">
-            <a href="https://crctelecom.assinante.net" class="btn-client" target="_blank"><i class="far fa-user"></i> <span>Área do Cliente</span></a>
+            <a href="https://crctelecom.assinante.net" class="btn-client" target="_blank"><i class="fas fa-barcode"></i> <span>2ª Via Fatura</span></a>
         </div>
     </header>
 
