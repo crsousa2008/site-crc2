@@ -31,24 +31,10 @@
         .btn-client { color: var(--primary); border: 1px solid var(--primary); padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
         .btn-client:hover { background: var(--primary); color: #fff; }
 
-        /* Hero Banner Premium - Fundo Escuro com Imagem Lado a Lado */
-        .hero { 
-            background: linear-gradient(135deg, #09283a 0%, #12557a 100%); 
-            color: white; 
-            padding: 40px 5%; 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            max-width: 100%;
-            overflow: hidden;
-        }
-        .hero-text { flex: 1.2; text-align: left; max-width: 600px; }
-        .hero-text h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -1px; line-height: 1.2; }
-        .hero-text p { font-size: 1.2rem; color: #e0e6ed; }
-        
-        .hero-img-container { flex: 0.8; display: flex; justify-content: center; align-items: flex-end; }
-        .hero-img-container img { max-width: 100%; height: auto; max-height: 320px; object-fit: contain; }
+        /* Hero Banner */
+        .hero { background: linear-gradient(135deg, #09283a 0%, #12557a 100%); color: white; padding: 80px 5% 70px 5%; text-align: center; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -1px; }
+        .hero p { font-size: 1.2rem; color: #e0e6ed; max-width: 600px; margin: 0 auto; }
 
         /* NAVEGAÇÃO POR ABAS (TABS) */
         .tabs-container { max-width: 1200px; margin: 40px auto 0 auto; padding: 0 20px; }
@@ -125,13 +111,9 @@
         .footer-links ul li a:hover { color: #fff; }
         .footer-copy { text-align: center; color: #6c757d; font-size: 12px; margin-top: 20px; }
 
-        /* Responsividade Mobile */
         @media (max-width: 768px) {
             .topbar { flex-direction: column; gap: 5px; text-align: center; }
             .logo-container img { height: 75px; }
-            .hero { flex-direction: column; text-align: center; padding: 40px 20px; gap: 20px; }
-            .hero-text h1 { font-size: 2.2rem; }
-            .hero-img-container { display: none; } /* Oculta no celular para focar no texto e planos */
             .tab-buttons { flex-direction: column; gap: 0; }
             .tab-btn { width: 100%; text-align: center; padding: 12px; border-bottom: 2px solid #e1e6eb; }
             .tab-btn.active { border-bottom: 3px solid var(--primary); }
@@ -156,18 +138,11 @@
         </div>
     </header>
 
-    <!-- HERO BANNER PREMIUM COM IMAGEM FIXADA LATERALMENTE -->
     <section class="hero">
-        <div class="hero-text">
-            <h1>Conexão inteligente para o que importa</h1>
-            <p>Internet ultraveloz para sua casa navegar sem interrupções e soluções completas de infraestrutura para o crescimento da sua empresa.</p>
-        </div>
-        <div class="hero-img-container">
-            <img src="1001202379.png" alt="Família Conectada">
-        </div>
+        <h1>Conexão inteligente para o que importa</h1>
+        <p>Escolha a solução ideal para a sua residência ou infraestrutura empresarial.</p>
     </section>
 
-    <!-- CONTAINER DAS ABAS -->
     <div class="tabs-container">
         <div class="tab-buttons">
             <button class="tab-btn active" onclick="openTab(event, 'residencial')"><i class="fas fa-home"></i>Para Você</button>
@@ -175,10 +150,8 @@
             <button class="tab-btn" onclick="openTab(event, 'suporte')"><i class="fas fa-tools"></i>Suporte e Central</button>
         </div>
 
-        <!-- ABA 1: RESIDENCIAL -->
         <div id="residencial" class="tab-content active">
             <section class="plans-grid">
-                <!-- 150 Mega -->
                 <div class="card">
                     <div class="card-speed">150 <span>Mega</span></div>
                     <div class="card-label">Ideal para o dia a dia</div>
@@ -192,7 +165,6 @@
                     <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano de 150 Mega por R$80." class="btn-buy" target="_blank">Contratar Agora</a>
                 </div>
                 
-                <!-- 200 Mega -->
                 <div class="card">
                     <div class="card-speed">200 <span>Mega</span></div>
                     <div class="card-label">Perfeito para Home Office</div>
@@ -206,7 +178,6 @@
                     <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano de 200 Mega por R$85." class="btn-buy" target="_blank">Contratar Agora</a>
                 </div>
 
-                <!-- 400 Mega -->
                 <div class="card featured">
                     <div class="ribbon">Mais Assinado</div>
                     <div class="card-speed" style="color: var(--primary);">400 <span>Mega</span></div>
@@ -221,7 +192,6 @@
                     <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano campeão de 400 Mega por R$100." class="btn-buy" target="_blank">Contratar Agora</a>
                 </div>
 
-                <!-- 600 Mega -->
                 <div class="card">
                     <div class="card-speed">600 <span>Mega</span></div>
                     <div class="card-label">Ultra Performance Familiar</div>
@@ -237,7 +207,6 @@
             </section>
         </div>
 
-        <!-- ABA 2: CORPORATIVO E INFRAESTRUTURA -->
         <div id="corporativo" class="tab-content">
             <div class="b2b-header">
                 <h2>Soluções Corporativas e Engenharia de Redes</h2>
@@ -245,7 +214,6 @@
             </div>
             
             <section class="plans-grid">
-                <!-- Planos PME -->
                 <div class="card">
                     <div class="card-speed"><i class="fas fa-briefcase"></i></div>
                     <div class="card-label" style="margin-top: 15px;">Planos Empresariais</div>
@@ -254,17 +222,15 @@
                     <a href="https://wa.me/5522992135891?text=Olá! Quero saber mais sobre os planos de internet empresariais." class="btn-buy" target="_blank">Solicitar Proposta</a>
                 </div>
 
-                <!-- Cabeamento e Construção -->
                 <div class="card featured">
                     <div class="ribbon">Infraestrutura</div>
                     <div class="card-speed" style="color: var(--primary);"><i class="fas fa-network-wired"></i></div>
                     <div class="card-label" style="margin-top: 15px;">Cabeamento & Construção</div>
                     <div class="card-divider"></div>
-                    <p style="font-size: 14px; color: #495057; margin-bottom: 20px;">Projetos e implantação de cabeamento estruturado e redes completas de dados via Fibra Óptica ou UTP.</p>
+                    <p style="font-size: 14px; color: #495057; margin-bottom: 20px;">Projetos e implantação de cabeamento estruturado estruturado e redes completas de dados via Fibra Óptica ou UTP.</p>
                     <a href="https://wa.me/5522992135891?text=Olá! Gostaria de um orçamento para serviços de cabeamento estruturado ou construção de rede." class="btn-buy" target="_blank">Falar com Especialista</a>
                 </div>
 
-                <!-- Consultoria e Configuração -->
                 <div class="card">
                     <div class="card-speed"><i class="fas fa-cogs"></i></div>
                     <div class="card-label" style="margin-top: 15px;">Consultoria & Configurações</div>
@@ -275,7 +241,6 @@
             </section>
         </div>
 
-        <!-- ABA 3: SUPORTE E CENTRAL -->
         <div id="suporte" class="tab-content">
             <div class="support-grid">
                 <div class="support-box">
@@ -294,12 +259,10 @@
         </div>
     </div>
 
-    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://wa.me/5522992135891?text=Olá! Preciso de suporte técnico ou atendimento sobre a minha internet." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Rodapé -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
@@ -321,7 +284,26 @@
         </div>
     </footer>
 
-    <!-- LOGICA DAS ABAS EM JAVASCRIPT -->
     <script>
         function openTab(evt, tabName) {
-            var i, t
+            var i, tabcontent, tablinks;
+            
+            // Esconde todos os conteúdos das abas
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+
+            // Remove a classe "active" de todos os botões
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostra a aba atual e adiciona a classe "active" ao botão clicado
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
