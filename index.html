@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX1SL1CJ44"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -159,7 +158,7 @@
             <a href="#"><img src="20260406_200613_0000.png" alt="CRC Telecom"></a>
         </div>
         <div class="header-actions">
-            <a href="https://crctelecom.assinante.net" class="btn-client" target="_blank"><i class="fas fa-barcode"></i> <span>2ª Via Fatura</span></a>
+            <a href="https://assinante.crctelecom.com.br" class="btn-client" target="_blank"><i class="fas fa-barcode"></i> <span>2ª Via Fatura</span></a>
         </div>
     </header>
 
@@ -272,7 +271,7 @@
                     <i class="fas fa-file-invoice-dollar"></i>
                     <h3>Área do Assinante</h3>
                     <p>Acesse o painel para retirar sua segunda via de faturas, ver consumo e gerenciar seu contrato.</p>
-                    <a href="https://crctelecom.assinante.net" class="btn-buy" target="_blank">Acessar Central</a>
+                    <a href="https://assinante.crctelecom.com.br" class="btn-buy" target="_blank">Acessar Central</a>
                 </div>
                 <div class="support-box">
                     <i class="fas fa-user-shield"></i>
@@ -308,27 +307,25 @@
             </div>
         </div>
         <div class="footer-copy">
-            <p>&copy; 2026 CRC Telecom. Todos os direitos reservados.</p>
-            <p style="font-size: 11px; margin-top: 5px; color: #5a626a;">CRC TELECOM SERVIÇOS LTDA - CNPJ: 42.736.097/0001-45.</p>
+            &copy; 2026 CRC Telecom. Todos os direitos reservados.
         </div>
     </footer>
 
     <script>
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
-            
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
             }
-
             tablinks = document.getElementsByClassName("tab-btn");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].classList.remove("active");
             }
-
-            document.getElementById(tabName).className += " active";
-            evt.currentTarget.className += " active";
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
     </script>
 </body>
