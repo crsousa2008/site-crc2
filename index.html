@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX1SL1CJ44"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -210,7 +211,7 @@
                     <ul class="card-features">
                         <li><i class="fas fa-check"></i> 100% Fibra Óptica</li>
                         <li><i class="fas fa-gamepad"></i> Baixa latência para Jogos</li>
-                        <li><i class="fas fa-tv"></i> Ideal para Streaming em 4K</li>
+                        <li><i class="fas TV fa-tv"></i> Ideal para Streaming em 4K</li>
                     </ul>
                     <div class="card-price-box"><span class="price-currency">R$</span><span class="price-value">100</span><span class="price-period">,00/mês</span></div>
                     <a href="https://wa.me/5522992135891?text=Olá! Quero assinar o plano campeão de 400 Mega por R$100." class="btn-buy" target="_blank">Contratar Agora</a>
@@ -251,7 +252,7 @@
                     <div class="card-speed" style="color: var(--primary);"><i class="fas fa-network-wired"></i></div>
                     <div class="card-label" style="margin-top: 15px;">Cabeamento & Construção</div>
                     <div class="card-divider"></div>
-                    <p style="font-size: 14px; color: #495057; margin-bottom: 20px;">Projetos e implantação de cabeamento estruturado estruturado e redes completas de dados via Fibra Óptica ou UTP.</p>
+                    <p style="font-size: 14px; color: #495057; margin-bottom: 20px;">Projetos e implantação de cabeamento estruturado e redes completas de dados via Fibra Óptica ou UTP.</p>
                     <a href="https://wa.me/5522992135891?text=Olá! Gostaria de um orçamento para serviços de cabeamento estruturado ou construção de rede." class="btn-buy" target="_blank">Falar com Especialista</a>
                 </div>
 
@@ -271,7 +272,7 @@
                     <i class="fas fa-file-invoice-dollar"></i>
                     <h3>Área do Assinante</h3>
                     <p>Acesse o painel para retirar sua segunda via de faturas, ver consumo e gerenciar seu contrato.</p>
-                    <a href="https://assinante.crctelecom.com.br" class="btn-buy" target="_blank">Acessar Central</a>
+                    <a href="https://assinante.crctelecomservicos.com.br" class="btn-buy" target="_blank">Acessar Central</a>
                 </div>
                 <div class="support-box">
                     <i class="fas fa-user-shield"></i>
@@ -307,25 +308,27 @@
             </div>
         </div>
         <div class="footer-copy">
-            &copy; 2026 CRC Telecom. Todos os direitos reservados.
+            <p>&copy; 2026 CRC Telecom. Todos os direitos reservados.</p>
+            <p style="font-size: 11px; margin-top: 5px; color: #5a626a;">CRC TELECOM SERVIÇOS LTDA - CNPJ: 42.736.097/0001-45.</p>
         </div>
     </footer>
 
     <script>
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
+            
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-                tabcontent[i].classList.remove("active");
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
             }
+
             tablinks = document.getElementsByClassName("tab-btn");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(tabName).style.display = "block";
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
         }
     </script>
 </body>
